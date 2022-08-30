@@ -1,13 +1,5 @@
 import axios from 'axios'
 
-// export function deleteItem (id) {
-//   return axios
-//     .delete(`https://localhost:7059/api/delete/${id}`)
-//     .catch(e => {
-//       console.log(e)
-//     })
-// }
-
 const ApiRequests = {
   deleteItem: (id) => {
     return axios
