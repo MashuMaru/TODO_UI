@@ -10,10 +10,10 @@ const ApiRequests = {
   },
   getTodoItems: () => {
     return axios
-    .get('https://localhost:7059/api/all-items')
-    .catch(e => {
-      console.log(e)
-    })
+      .get('https://localhost:7059/api/all-items')
+      .catch(e => {
+        console.log(e)
+      })
   }
 }
 
