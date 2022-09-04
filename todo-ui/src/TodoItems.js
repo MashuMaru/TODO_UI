@@ -1,37 +1,54 @@
 import { List, ListItem, IconButton, ListItemButton, ListItemText } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CheckCircle from '@mui/icons-material/CheckCircle'
+import Typography from '@mui/material/Typography';
 
 const TodoItems = (props) => {
-  const deleteItem = (e) => {
-    props.delete(e.target.id)
+  const deleteItem = (id) => {
+    props.delete(id)
   }
-  const setAsComplete = (e) => {
-    props.complete(e.target.id)
+  const setAsComplete = (id) => {
+    props.complete(id)
   }
   return (
-    <List sx={{ width: '100%', mt:5, mx:'auto', maxWidth: 360, bgcolor: 'background.paper' }}>
-        {props.items.map((value) => {
-          const labelId = `checkbox-list-label-${value}`;
-          return (
-            <ListItem
-              disabled={value.isCompleted}
-              divider
-              key={value.id}
-              secondaryAction={
-                <IconButton edge="end" aria-label="delete" onClick={deleteItem}>
-                  <DeleteIcon color='error' />
-                </IconButton>
-              }
-              disablePadding>
-              <ListItemButton role={undefined} dense>
-                <CheckCircle color='primary' onClick={setAsComplete}/>
-                <ListItemText id={labelId} primary={value.todo} />
-              </ListItemButton>
-            </ListItem>
-          );
-        })}
+    <div>
+      {props.title &&
+      <Typography className='title' align='center' sx={{mt:5}} variant="subtitle2" gutterBottom>
+        {props.title}
+      </Typography>}
+      <List 
+        className="list-item" 
+        sx={{ width: '100%', mx:'auto', color:'#fff', maxWidth: 360, bgcolor: '#38424a' }}>
+          {props.items.map((item) => {
+            const labelId = `checkbox-list-label-${item}`;
+            return (
+              <ListItem
+                divider
+                key={item.id}
+                secondaryAction={
+                  <IconButton 
+                    edge="end"
+                    aria-label="delete" 
+                    onClick={() => deleteItem(item.id)}>
+                    <DeleteIcon color='error' />
+                  </IconButton>
+                }
+                disablePadding>
+                <ListItemButton role={undefined} dense>
+                  {!item.isComplete && 
+                    <IconButton 
+                      edge="center"
+                      aria-label="complete" 
+                      onClick={() => setAsComplete(item.id)}>
+                    <CheckCircle htmlColor='#DAF7A6'/>
+                    </IconButton>}
+                  <ListItemText sx={{ml:2}} id={labelId} primary={item.todo} />
+                </ListItemButton>
+              </ListItem>
+            );
+          })}
       </List>
+    </div>
   )
 }
 
