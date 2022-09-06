@@ -90,7 +90,7 @@ const App = () => {
         Small Todo App (Full-stack)
       </Typography>
       <Typography className="title" align='center' sx={{mt:5}} variant="subtitle2" gutterBottom>
-        {loading || !todoItems.length ? 'No items available. Try adding?' : void 0}
+        {!todoItems.length ? 'No items available. Try adding?' : void 0}
       </Typography>
       <Backdrop
         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
@@ -109,7 +109,6 @@ const App = () => {
         delete={deleteItemHandler}
         items={completeItems} 
         />
-      {/* // TODO: Add new list for completed items */}
     </div>
   );
 }
