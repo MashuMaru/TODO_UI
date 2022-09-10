@@ -79,6 +79,22 @@ const App = () => {
       console.log(e)
     })
   }
+  const stateTodoItems = (
+    <TodoItems 
+      title="Current"
+      items={todoItems} 
+      delete={deleteItemHandler}
+      complete={setAsCompleteHandler}
+      />
+  )
+  const stateCompletedItems = (
+    <TodoItems
+      title="Completed"
+      sx={{mt:5}}
+      delete={deleteItemHandler}
+      items={completeItems} 
+      />
+  )
   return (
     <div className='App'>
       <Snackbar open={notification.active} autoHideDuration={6000}>
@@ -97,18 +113,8 @@ const App = () => {
         open={loading}>
         <CircularProgress />
       </Backdrop>
-      <TodoItems 
-        title="Awaiting"
-        items={todoItems} 
-        delete={deleteItemHandler}
-        complete={setAsCompleteHandler}
-        />
-      <TodoItems
-        title="Completed"
-        sx={{mt:5}}
-        delete={deleteItemHandler}
-        items={completeItems} 
-        />
+      {todoItems.length > 0 && stateTodoItems}
+      {completeItems.length > 0 && stateCompletedItems}
     </div>
   );
 }
