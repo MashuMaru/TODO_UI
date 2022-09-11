@@ -23,3 +23,12 @@
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  color: white !important;
+}
+.css-1lwa3th-MuiFormLabel-root-MuiInputLabel-root {
+  color: #2e7d32 !important;
+}
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border-color: #2e7d32 !important;
+}

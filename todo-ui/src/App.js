@@ -27,7 +27,7 @@ const App = () => {
       setCompleted(response.data.filter(x => x.isComplete))
     })
     .catch(e => {
-      console.log(e)
+      enqueueSnackbar(e.message, { variant: 'error' });
     })
     .finally(() => {
       setLoading(false)
@@ -42,7 +42,7 @@ const App = () => {
       getTodoItems()
     })
     .catch(e => {
-      enqueueSnackbar(e, { variant: 'error' });
+      enqueueSnackbar(e.message, { variant: 'error' });
     })
   }
   const setAsCompleteHandler = (id) => {
@@ -54,7 +54,7 @@ const App = () => {
       getTodoItems()
     })
     .catch(e => {
-      enqueueSnackbar(e, { variant: 'error' });
+      enqueueSnackbar(e.message, { variant: 'error' });
     })
   }
   const addNewTodoItem = (newItem) => {
@@ -69,7 +69,7 @@ const App = () => {
       getTodoItems()
     })
     .catch(e => {
-      enqueueSnackbar(e, { variant: 'error' })
+      enqueueSnackbar(e.message, { variant: 'error' });
     })
     .finally(() => {
       setLoading(false)
@@ -89,7 +89,7 @@ const App = () => {
         newTodoItem={addNewTodoItem} />
       {!todoItems.length && 
       <Typography className="title" align='center' sx={{mt:5}} variant="subtitle2" gutterBottom>
-        'No items available. Try adding?
+        No items available. Maybe add?
       </Typography>}
       {todoItems.length > 0 && 
       <TodoItems 
