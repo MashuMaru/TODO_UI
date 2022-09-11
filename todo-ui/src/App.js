@@ -16,10 +16,11 @@ const App = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true)
     getTodoItems()
   }, [])
+
   const getTodoItems = () => {
+    setLoading(true)
     axios
     .get('https://localhost:7059/api/all-items')
     .then(response => {
