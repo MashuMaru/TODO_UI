@@ -26,7 +26,9 @@ const CreateNewItem = (props) => {
       return
     }
     props.newTodoItem(todoItem)
-    setTodoItem('');
+      .then(() => {
+        setTodoItem('');
+      })
   }
   return (
     <>
