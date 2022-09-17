@@ -26,15 +26,11 @@ const CreateNewItem = (props) => {
       return
     }
     props.newTodoItem(todoItem)
-      .then(() => {
-        setTodoItem('');
-      })
+    setTodoItem('');
   }
   return (
     <>
-      <TextField
-        autoComplete={false}
-        className="inputClass"
+      <TextField     
         startAdornment={
           <InputAdornment position="start">
             <AddIcon />
