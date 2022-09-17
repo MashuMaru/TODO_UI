@@ -31,7 +31,6 @@ const CreateNewItem = (props) => {
   return (
     <>
       <TextField
-        autoComplete='off'
         className="inputClass"
         startAdornment={
           <InputAdornment position="start">
